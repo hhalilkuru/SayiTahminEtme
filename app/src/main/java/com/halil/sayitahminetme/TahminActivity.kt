@@ -5,10 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
+import com.google.android.material.snackbar.Snackbar
 import kotlin.random.Random
+import kotlin.reflect.typeOf
 
 class TahminActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -23,6 +23,8 @@ class TahminActivity : AppCompatActivity() {
         val textViewYardim = findViewById<TextView>(R.id.textViewYardim)
         val textViewKalanHak = findViewById<TextView>(R.id.textViewKalanHak)
 
+        var tahmin = 0
+
 
         val rastgeleSayi: Int = Random.nextInt(0,100) //0 ile 100 arasında rastgele sayı üretecek.
 
@@ -32,32 +34,44 @@ class TahminActivity : AppCompatActivity() {
 
         buttonTahmin.setOnClickListener{
 
-            sayac -= 1
-            val tahmin = editTextGirdi.text.toString().toInt()
+            try{
+                tahmin = editTextGirdi.text.toString().toInt()
+            }
+            catch (e: Exception){
+                tahmin = 2147483647
+            }finally {
+                if (tahmin == 2147483647){
+                    Snackbar.make(it, "Lütfen tahmininizi giriniz!",1000).show()
+                }else{
+                    if(tahmin > rastgeleSayi && tahmin <=100){
+                        sayac--
+                        textViewYardim.text = "Azalt"
+                        textViewKalanHak.text = "Kalan Hak: $sayac"
+                    }
+                    if(tahmin < rastgeleSayi && tahmin >=0) {
+                        sayac--
+                        textViewYardim.text = "Arttır"
+                        textViewKalanHak.text = "Kalan Hak: $sayac"
+                    }
+                    if (tahmin > 100){
+                        Snackbar.make(it, "Lütfen tahmininizi 0 ile 100 arasında giriniz!",1000).show()
+                    }
+                }
+            }
 
             if(tahmin == rastgeleSayi){
 
                 val intent = Intent(this@TahminActivity,SonucActivity::class.java)
 
                 intent.putExtra("sonuc",true)
-                //   finish() //tahmin ekranından sonuç ekranına geçerken backstage den siliyoruz. böylece tahmin et kısmına değil ana ekrana geçiyor
+                //finish() //tahmin ekranından sonuç ekranına geçerken backstage den siliyoruz. böylece tahmin et kısmına değil ana ekrana geçiyor
                 startActivity(intent)
 
                 return@setOnClickListener //son 1 hakkımız kaldığı zaman kaybettiniz yazısının çıkması engellendi.
             }
 
-            if(tahmin > rastgeleSayi){
 
-                textViewYardim.text = "Azalt"
-                textViewKalanHak.text = "Kalan Hak: $sayac"
 
-            }
-            if(tahmin < rastgeleSayi) {
-
-                textViewYardim.text = "Arttır"
-                textViewKalanHak.text = "Kalan Hak: $sayac"
-
-            }
             if(sayac == 0) {
                 val intent = Intent(this@TahminActivity,SonucActivity::class.java)
                 intent.putExtra("sonuc",false)
