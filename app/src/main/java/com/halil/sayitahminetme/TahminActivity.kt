@@ -8,7 +8,6 @@ import android.util.Log
 import android.widget.*
 import com.google.android.material.snackbar.Snackbar
 import kotlin.random.Random
-import kotlin.reflect.typeOf
 
 class TahminActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -17,20 +16,20 @@ class TahminActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tahmin)
 
         val buttonTahmin = findViewById<Button>(R.id.buttonTahmin)
-
         val editTextGirdi = findViewById<EditText>(R.id.editTextGirdi)
-
         val textViewYardim = findViewById<TextView>(R.id.textViewYardim)
         val textViewKalanHak = findViewById<TextView>(R.id.textViewKalanHak)
+
 
         var tahmin = 0
 
 
         val rastgeleSayi: Int = Random.nextInt(0,100) //0 ile 100 arasında rastgele sayı üretecek.
-
         Log.e("Rastgele Sayi",rastgeleSayi.toString())
 
+
         var sayac = 5
+        textViewKalanHak.text = "Kalan Hak: $sayac"
 
         buttonTahmin.setOnClickListener{
 
@@ -58,6 +57,7 @@ class TahminActivity : AppCompatActivity() {
                     }
                 }
             }
+
 
             if(tahmin == rastgeleSayi){
 
