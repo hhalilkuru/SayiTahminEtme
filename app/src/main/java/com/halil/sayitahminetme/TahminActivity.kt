@@ -20,6 +20,8 @@ class TahminActivity : AppCompatActivity() {
         val textViewYardim = findViewById<TextView>(R.id.textViewYardim)
         val textViewKalanHak = findViewById<TextView>(R.id.textViewKalanHak)
 
+        val girilenSayi = findViewById<TextView>(R.id.textViewGirilenSayi)
+
 
         var tahmin = 0
 
@@ -55,6 +57,8 @@ class TahminActivity : AppCompatActivity() {
                     if (tahmin > 100){
                         Snackbar.make(it, "Lütfen tahmininizi 0 ile 100 arasında giriniz!",1000).show()
                     }
+
+                    girilenSayi.text = "Girdiğiniz Sayı: $tahmin"
                 }
             }
 

@@ -30,6 +30,13 @@
         android:textSize="24dp" />
 
     <TextView
+        android:id="@+id/textViewGirilenSayi"
+        android:layout_width="196dp"
+        android:layout_height="52dp"
+        android:textColor="#3F51B5"
+        android:textSize="24sp" />
+
+    <TextView
         android:id="@+id/textViewYardim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
