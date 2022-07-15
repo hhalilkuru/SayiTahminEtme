@@ -16,3 +16,6 @@ Yeni özellikler eklendi:
 - Sonuç ekranında doğru sayıyı, belirtme eklendi.
 
 - Eğitimde yapılan versiyonunda olan, sayı tahmini eklenmeyince/boş girilince çökme sorunu çözüldü.
+
+
+![untitled3](https://user-images.githubusercontent.com/17111521/179135998-5b89e8fc-5377-4338-b061-7d18e3c97cec.gif)
