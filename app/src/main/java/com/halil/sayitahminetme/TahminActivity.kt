@@ -29,9 +29,11 @@ class TahminActivity : AppCompatActivity() {
         val rastgeleSayi: Int = Random.nextInt(0,100) //0 ile 100 arasında rastgele sayı üretecek.
         Log.e("Rastgele Sayi",rastgeleSayi.toString())
 
-
         var sayac = 5
         textViewKalanHak.text = "Kalan Hak: $sayac"
+
+       val bundle = Bundle()
+         bundle.putString("id", rastgeleSayi.toString())
 
         buttonTahmin.setOnClickListener{
 
@@ -46,12 +48,12 @@ class TahminActivity : AppCompatActivity() {
                 }else{
                     if(tahmin > rastgeleSayi && tahmin <=100){
                         sayac--
-                        textViewYardim.text = "Azalt"
+                        textViewYardim.text = "▼ Azalt ▼"
                         textViewKalanHak.text = "Kalan Hak: $sayac"
                     }
                     if(tahmin < rastgeleSayi && tahmin >=0) {
                         sayac--
-                        textViewYardim.text = "Arttır"
+                        textViewYardim.text = "▲ Arttır ▲"
                         textViewKalanHak.text = "Kalan Hak: $sayac"
                     }
                     if (tahmin > 100){
@@ -68,9 +70,11 @@ class TahminActivity : AppCompatActivity() {
                 val intent = Intent(this@TahminActivity,SonucActivity::class.java)
 
                 intent.putExtra("sonuc",true)
-                //finish() //tahmin ekranından sonuç ekranına geçerken backstage den siliyoruz. böylece tahmin et kısmına değil ana ekrana geçiyor
+                intent.putExtras(bundle)
+                 //tahmin ekranından sonuç ekranına geçerken backstage den siliyoruz. böylece tahmin et kısmına değil ana ekrana geçiyor
                 startActivity(intent)
 
+                finish()
                 return@setOnClickListener //son 1 hakkımız kaldığı zaman kaybettiniz yazısının çıkması engellendi.
             }
 
@@ -79,6 +83,7 @@ class TahminActivity : AppCompatActivity() {
             if(sayac == 0) {
                 val intent = Intent(this@TahminActivity,SonucActivity::class.java)
                 intent.putExtra("sonuc",false)
+                intent.putExtras(bundle)
                 finish()
                 startActivity(intent)
 

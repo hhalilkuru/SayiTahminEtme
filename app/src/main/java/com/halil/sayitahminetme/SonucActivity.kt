@@ -18,10 +18,17 @@ class SonucActivity : AppCompatActivity() {
 
         val textViewSonuc = findViewById<TextView>(R.id.textViewSonuc)
 
+        val textViewBSayi = findViewById<TextView>(R.id.textViewBSayi)
+
         val imageViewSonuc = findViewById<ImageView>(R.id.imageViewSonuc)
 
 
         val sonuc = intent.getBooleanExtra("sonuc",false)
+
+        val bundle = intent.extras
+        if (bundle != null){
+            textViewBSayi.text = "Sayı  = ${bundle.getString("id")}"
+        }
 
         if(sonuc){
 
