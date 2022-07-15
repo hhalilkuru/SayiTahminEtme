@@ -13,7 +13,7 @@ Yeni özellikler eklendi:
 
 - Kullanıcı sayı girişi yapmayınca snackbar ile uyarı eklendi, boş sayının kalan hak sayısından düşmesi engellendi.
 
-- Sonuç ekranında doğru sayıyı, belirtme eklendi.
+- Sonuç ekranında doğru sayıyınun belirtilmesi eklendi.
 
 - Eğitimde yapılan versiyonunda olan, sayı tahmini eklenmeyince/boş girilince çökme sorunu çözüldü.
 
