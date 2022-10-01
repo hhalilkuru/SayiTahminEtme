@@ -8,43 +8,63 @@
     android:gravity="center"
     tools:context=".TahminActivity">
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 ile 100 arasında bir tahmin yapınız"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="#4CAF50"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/textViewKalanHak"
-        android:layout_width="144dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Kalan Hak:"
-        android:textColor="#E10404"
-        android:textSize="24dp" />
-
-    <TextView
-        android:id="@+id/textViewGirilenSayi"
-        android:layout_width="196dp"
-        android:layout_height="52dp"
-        android:textColor="#3F51B5"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textViewYardim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="#FF0000"
-        android:textSize="24sp"
-        android:visibility="visible" />
+        app:cardCornerRadius="12dp"
+        app:contentPadding="10dp"
+        app:cardElevation="20dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 ile 100 arasında bir tahmin yapınız"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#4CAF50"
+                android:textStyle="bold"/>
+        
+            <TextView
+                android:id="@+id/textViewKalanHak"
+                android:layout_width="144dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Kalan Hak:"
+                android:textColor="#E10404"
+                android:textAlignment="center"
+                android:textSize="24dp" />
+            
+            <TextView
+                android:id="@+id/textViewGirilenSayi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#3F51B5"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:text="20"/>
+        
+            <TextView
+                android:id="@+id/textViewYardim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#FF0000"
+                android:textSize="24sp"
+                android:text="tahmininizi yükseltin"
+                android:visibility="visible" />
+            
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <EditText
         android:id="@+id/editTextGirdi"
